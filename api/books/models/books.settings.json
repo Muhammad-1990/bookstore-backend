@@ -20,6 +20,10 @@
     "genres": {
       "via": "books",
       "collection": "genre"
+    },
+    "tags": {
+      "via": "books",
+      "collection": "tags"
     }
   }
 }
