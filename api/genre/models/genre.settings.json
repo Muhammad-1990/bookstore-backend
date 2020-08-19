@@ -15,8 +15,8 @@
       "unique": true
     },
     "books": {
-      "collection": "books",
       "via": "genres",
+      "collection": "books",
       "dominant": true
     }
   }

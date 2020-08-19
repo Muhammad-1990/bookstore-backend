@@ -18,12 +18,15 @@
       "type": "decimal"
     },
     "genres": {
-      "via": "books",
-      "collection": "genre"
+      "collection": "genre",
+      "via": "books"
     },
     "tags": {
-      "via": "books",
-      "collection": "tags"
+      "collection": "tags",
+      "via": "books"
+    },
+    "ISBN": {
+      "type": "string"
     }
   }
 }
