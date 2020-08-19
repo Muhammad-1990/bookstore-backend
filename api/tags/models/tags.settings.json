@@ -13,8 +13,8 @@
       "type": "string"
     },
     "books": {
-      "collection": "books",
       "via": "tags",
+      "collection": "books",
       "dominant": true
     }
   }
