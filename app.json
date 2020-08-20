@@ -1,6 +1,9 @@
 {
   "environments": {
     "review": {
+      "scripts": {
+        "postdeploy": "./postdeployReviewapp.sh"
+      },
       "addons": [
         "heroku-postgresql:hobby-dev"
       ]
