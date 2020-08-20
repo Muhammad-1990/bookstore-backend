@@ -1,4 +1,5 @@
 #!/bin/bash
 
-echo $DATABASE_URL
+$ chmod +x postdeployReviewapp.sh
+echo "$DATABASE_URL"
 
