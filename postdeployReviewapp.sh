@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 echo $HEROKU_APP_NAME
-
+DATABASE_URL=xxx
 echo $DATABASE_URL
-echo $SERVER_URL=https
+SERVER_URL=test
+echo $SERVER_URL
