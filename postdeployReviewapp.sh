@@ -1,9 +1,7 @@
 #!/bin/bash
-
-$ chmod +x postdeployReviewapp.sh
-
-heroku config:set GITHUB_USERNAME=muhammad-1990
-
-echo $HEROKU_APP_NAME
-
-export SERVER_URL=https://$HEROKU_APP_NAME.herokuapp.com/parse
+#
+#Purpose of script:
+#  -Expidite setting heroku config each time
+#
+##############################################
+sudo heroku config:set TEST_CONFIG=myvalue
