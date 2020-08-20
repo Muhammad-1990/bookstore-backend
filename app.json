@@ -1,11 +1,8 @@
 {
-  "scripts": {
-    "postdeploy": "sudo heroku config:set TEST_CONFIG=myvalue"
-  },
   "environments": {
     "review": {
       "scripts": {
-        "postdeploy": "chmod a+x ./postdeployReviewapp.sh"
+        "postdeploy": "./postdeployReviewapp.js"
       },
       "addons": [
         "heroku-postgresql:hobby-dev"
