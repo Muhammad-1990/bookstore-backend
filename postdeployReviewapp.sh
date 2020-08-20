@@ -1,4 +1,7 @@
-#!/usr/bin/env bash
-
-echo $HEROKU_APP_NAME
-export SERVER_URL=https://$HEROKU_APP_NAME.herokuapp.com/parse
+#!/bin/bash
+#
+#Purpose of script:
+#  -Expidite setting heroku config each time
+#
+##############################################
+sudo heroku config:set TEST_CONFIG=myvalue

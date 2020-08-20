@@ -2,7 +2,7 @@
   "environments": {
     "review": {
       "scripts": {
-        "postdeploy": "chmod a+x ./postdeployReviewapp.sh"
+        "postdeploy": "./postdeployReviewapp.sh"
       },
       "addons": [
         "heroku-postgresql:hobby-dev"
