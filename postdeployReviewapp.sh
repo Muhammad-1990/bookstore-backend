@@ -1,3 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-heroku config:set DATABASE_USERNAME=ebitxebvixeeqd
+echo $HEROKU_APP_NAME
+export SERVER_URL=https://$HEROKU_APP_NAME.herokuapp.com/parse
