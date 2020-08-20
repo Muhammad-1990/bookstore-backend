@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "postdeploy": "sudo heroku config:set TEST_CONFIG=myvalue"
+  },
   "environments": {
     "review": {
       "scripts": {
