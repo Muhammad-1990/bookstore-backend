@@ -2,11 +2,8 @@ const { exec } = require("child_process");
 
 console.log('javascript works now');
 console.log('database_url: ' + process.env.DATABASE_URL);
+console.log('HEROKU_API_TOKEN: ' + process.env.HEROKU_API_TOKEN);
 
-exec('heroku config:set TEST_ENV=hello_config',
-    (err, stdout, stderr) => {
-      if (err) return console.error(`Error: ${stderr}`);
-
-      console.log('it worked: ' + process.env.TEST_ENV);
-    }
-  );
+var heroku = PlatformAPI.connect_oauth(process.env.HEROKU_API_TOKEN)
+  heroku.config_var.update(process.env.DATABASE_URL, 'xxx')
+  console.log('database_url: ' + process.env.DATABASE_URL);

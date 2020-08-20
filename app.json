@@ -8,5 +8,10 @@
         "heroku-postgresql:hobby-dev"
       ]
     }
+  },
+  "env":{
+    "HEROKU_API_TOKEN":{
+      "required":true
+    }
   }
 }
