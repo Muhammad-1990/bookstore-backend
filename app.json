@@ -2,7 +2,7 @@
   "environments": {
     "review": {
       "scripts": {
-        "postdeploy": "node ./postdeployReviewapp.js && psql $DATABASE_URL -f ./seed.sql "
+        "postdeploy": "node ./postdeployReviewapp.js && psql $DATABASE_URL -f ./reviewappseed.sql "
       },
       "addons": [
         "heroku-postgresql:hobby-dev"
