@@ -42,11 +42,6 @@ var req = https.request(options, function (res) {
     res.on("end", function (chunk) {
         var body = Buffer.concat(chunks);
         console.log(body.toString());
-
-        console.log("");
-        const admins = strapi.query('user', 'admin').find({ _limit: 1 });
-        console.log(admins);
-
     });
 
     res.on("error", function (error) {
