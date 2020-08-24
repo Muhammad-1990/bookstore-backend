@@ -8,7 +8,7 @@
         "heroku-postgresql:hobby-dev"
       ],
       "env": {
-        "NODE_ENV": "review"
+        "NODE_ENV": "development"
       }
     }
   },

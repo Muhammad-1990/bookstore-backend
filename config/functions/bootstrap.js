@@ -11,7 +11,7 @@ const userSeed = require('./seeds');
  */
 
 module.exports = async () => {
-    if (process.env.NODE_ENV == "review") {
+    if (process.env.NODE_ENV == "development") {
         userSeed.createUser();
     }
 };
