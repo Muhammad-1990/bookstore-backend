@@ -1,1 +1,1 @@
-insert into tags values ('my seeded tag');
+insert into Tags(name) values ('my seeded tag test');
