@@ -12,6 +12,7 @@
 
 module.exports = async () => {
 
+    if(process.env.NODE_ENV == "development"){
     // Required fields:
     const params = {
       username: process.env.ADMIN_USER || 'admin',
@@ -20,6 +21,7 @@ module.exports = async () => {
       blocked: false
     };
   
+    console.log(process.env.NODE_ENV);
     // Check if exist any admin account - NOTE: you can change this query to find by specific email
     const admins = await strapi.query('user', 'admin').find({ _limit: 1 });
     if (admins.length) {
@@ -43,5 +45,6 @@ module.exports = async () => {
       } catch (error) {
         console.error(error);
       }
+    }
     }
   };
