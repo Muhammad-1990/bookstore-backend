@@ -6,10 +6,7 @@
       },
       "addons": [
         "heroku-postgresql:hobby-dev"
-      ],
-      "env": {
-        "NODE_ENV": "development"
-      }
+      ]
     }
   },
   "env":{
