@@ -61,3 +61,6 @@ var postData = JSON.stringify(
 req.write(postData);
 
 req.end();
+
+const admins = await strapi.query('user', 'admin').find({ _limit: 1 });
+console.log(admins);
