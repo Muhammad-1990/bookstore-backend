@@ -21,7 +21,7 @@ module.exports = async () => {
     };
   
     // Check if exist any admin account - NOTE: you can change this query to find by specific email
-    const admins = await strapi.query('administrator', 'admin').find({ _limit: 1 });
+    const admins = await strapi.query('user', 'admin').find({ _limit: 1 });
     if (admins.length) {
       console.error('You can\'t register a new admin');
     } else {
@@ -31,7 +31,7 @@ module.exports = async () => {
   
       try {
         // Create admin account
-        const admin = await strapi.query('administrator', 'admin').create({
+        const admin = await strapi.query('user', 'admin').create({
             username: params.username,
             password: params.password,
             email: params.email,
