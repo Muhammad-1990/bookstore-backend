@@ -27,6 +27,9 @@
     },
     "ISBN": {
       "type": "string"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
