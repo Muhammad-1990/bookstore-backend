@@ -1,0 +1,23 @@
+{
+  "environments": {
+    "review": {
+      "scripts": {
+        "postdeploy": "node ./postdeployReviewapp.js"
+      },
+      "addons": [
+        "heroku-postgresql:hobby-dev"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  },
+  "env":{
+    "HEROKU_APP_NAME": {
+      "required": true
+  },
+    "HEROKU_API_TOKEN":{
+      "required":true
+    }
+  }
+}

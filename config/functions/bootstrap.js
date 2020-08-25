@@ -1,5 +1,5 @@
 'use strict';
-
+const userSeed = require('./seeds');
 /**
  * An asynchronous bootstrap function that runs before
  * your application gets started.
@@ -10,4 +10,8 @@
  * See more details here: https://strapi.io/documentation/v3.x/concepts/configurations.html#bootstrap
  */
 
-module.exports = () => {};
+module.exports = async () => {
+    if (process.env.NODE_ENV == "development") {
+        await userSeed.createUser();
+    }
+};
