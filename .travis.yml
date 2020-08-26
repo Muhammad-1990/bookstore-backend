@@ -1,7 +1,14 @@
+services:
+  - postgresql
+
+  addons:
+  postgresql: '11.2'
+
 language: node_js
 node_js: 12.13.0
-sudo: false
+
 install:
   - npm install
 script:
   - npm run test
+
