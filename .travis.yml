@@ -9,7 +9,7 @@ install:
   - npm install
 
 script:
-  - ENV_PATH=./config/env/test/.env npm run test
+  - NODE_ENV=test npm run test
 
 services:
   - postgresql
