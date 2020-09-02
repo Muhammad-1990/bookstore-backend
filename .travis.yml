@@ -1,10 +1,20 @@
+services:
+  - postgresql
+
+
 language: node_js
 node_js: 12.13.0
 
 install:
   - npm install
+
 script:
   - npm run test
 
+services:
+  - postgresql
 
+
+before_script:
+  - psql -c 'create database strapi_test;' -U postgres
 
