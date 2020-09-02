@@ -5,7 +5,6 @@ const { setupStrapi } = require('./helpers/strapi');
 beforeAll(async done => {
   await setupStrapi(); // singleton so it can be called many times
   const dbSettings = strapi.config.get('database.connections.default.settings');
-  console.log(dbSettings);
   done();
 });
 
