@@ -28,5 +28,5 @@ it('strapi is defined', async done => {
 });
 
 
-//require('./books');
+require('./books');
 //require('./users');
