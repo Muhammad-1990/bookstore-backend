@@ -8,14 +8,21 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "test": "jest --forceExit --detectOpenHandles"
+    "pretest": " psql -U postgres -c \"create database strapi_test\"",
+    "test": "env ENV_PATH=./config/env/test/.env NODE_ENV=development jest --testTimeout=10000 --forceExit --detectOpenHandles",
+    "posttest": "npm run db:terminate && npm run db:drop",
+    "db:terminate": "psql -U postgres -c \"SELECT pg_terminate_backend (pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'strapi_test';\"",
+    "db:drop": "psql -U postgres -c \"DROP DATABASE IF EXISTS strapi_test\"",
+    "test:travisci": "NODE_ENV=development jest --testTimeout=15000 --forceExit --detectOpenHandles"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "cross-env": "^7.0.2"
+  },
   "dependencies": {
     "jest": "^26.4.2",
     "knex": "<0.20.0",
     "pg": "^8.3.2",
-    "strapi": "3.1.4",
+    "strapi": "^3.1.4",
     "strapi-admin": "3.1.4",
     "strapi-connector-bookshelf": "3.1.4",
     "strapi-plugin-content-manager": "3.1.4",
