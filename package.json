@@ -8,15 +8,20 @@
     "start": "strapi start",
     "build": "strapi build",
     "strapi": "strapi",
-    "pretest": "psql -U postgres -c \"create database strapi_test\"",
-    "test": "env ENV_PATH=./config/env/test/.env NODE_ENV=development jest --testTimeout=10000 --forceExit --detectOpenHandles",
-    "posttest": "npm run db:terminate && npm run db:drop",
+    "test": "npm run lint && npm run jest",
+    "test:travisci": "NODE_ENV=development jest --testTimeout=15000 --forceExit --detectOpenHandles",
+    "lint": "npx eslint ./",
+    "jest":"env ENV_PATH=./config/env/test/.env NODE_ENV=development jest --testTimeout=10000 --forceExit --detectOpenHandles",
+    "prejest": "npm run db:create",
+    "postjest": "npm run db:terminate && npm run db:drop",
+    "db:create":"psql -U postgres -c \"CREATE DATABASE strapi_test\"",
     "db:terminate": "psql -U postgres -c \"SELECT pg_terminate_backend (pg_stat_activity.pid) FROM pg_stat_activity WHERE pg_stat_activity.datname = 'strapi_test';\"",
-    "db:drop": "psql -U postgres -c \"DROP DATABASE IF EXISTS strapi_test\"",
-    "test:travisci": "NODE_ENV=development jest --testTimeout=15000 --forceExit --detectOpenHandles"
+    "db:drop": "psql -U postgres -c \"DROP DATABASE IF EXISTS strapi_test\""
   },
   "devDependencies": {
-    "cross-env": "^7.0.2"
+    "babel-eslint": "^10.1.0",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.8.1"
   },
   "dependencies": {
     "jest": "^26.4.2",
