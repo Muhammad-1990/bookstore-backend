@@ -9,13 +9,8 @@ module.exports.createUser = async () => {
 
     // Check if exist any admin account - NOTE: you can change this query to find by specific email
     const admins = await strapi.query('user', 'admin').find({ _limit: 1 });
-    if (admins.length) {
-        console.error('You can\'t register another admin.');
-    } else {
-
-        // Hash password before storing in the database
+    if (!admins.length) {
         params.password = await strapi.admin.services.auth.hashPassword(params.password);
-
         try {
             // Create admin account
             const admin = await strapi.query('user', 'admin').create({
