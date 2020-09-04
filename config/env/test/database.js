@@ -16,3 +16,4 @@ module.exports = ({ env }) => ({
     },
   },
 });
+//$(grep DATABASE_NAME ./config/env/test/.env | cut -d '=' -f2);
