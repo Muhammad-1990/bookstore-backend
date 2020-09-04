@@ -8,7 +8,7 @@ const url = require('url');
  * 
  */
 let settings = {
-    client: 'postgres'
+  client: 'postgres'
 };
 
 const parsed = url.parse(process.env.DATABASE_URL, true);
@@ -22,41 +22,36 @@ settings.password = password;
 settings.ssl = (parsed.query.ssl === 'true');
 
 var options = {
-    'method': 'PATCH',
-    'hostname': 'api.heroku.com',
-    'path': '/apps/' + process.env.HEROKU_APP_NAME + '/config-vars',
-    'headers': {
-        'Content-Type': 'application/json',
-        'Accept': 'application/vnd.heroku+json; version=3',
-        'Authorization': 'Bearer ' + process.env.HEROKU_API_TOKEN
-    }
+  'method': 'PATCH',
+  'hostname': 'api.heroku.com',
+  'path': '/apps/' + process.env.HEROKU_APP_NAME + '/config-vars',
+  'headers': {
+    'Content-Type': 'application/json',
+    'Accept': 'application/vnd.heroku+json; version=3',
+    'Authorization': 'Bearer ' + process.env.HEROKU_API_TOKEN
+  }
 };
 
 var req = https.request(options, function (res) {
-    var chunks = [];
+  res.on('data', function () {
+  });
 
-    res.on("data", function (chunk) {
-        chunks.push(chunk);
-    });
+  res.on('end', function () {
+  });
 
-    res.on("end", function (chunk) {
-        var body = Buffer.concat(chunks);
-        console.log(body.toString());
-    });
-
-    res.on("error", function (error) {
-        console.error(error);
-    });
+  res.on('error', function (error) {
+    console.error(error);
+  });
 });
 
 var postData = JSON.stringify(
-    {
-        "DATABASE_USERNAME": settings.username,
-        "DATABASE_PASSWORD": settings.password,
-        "DATABASE_HOST": settings.host,
-        "DATABASE_PORT": settings.port,
-        "DATABASE_NAME": settings.database
-    });
+  {
+    'DATABASE_USERNAME': settings.username,
+    'DATABASE_PASSWORD': settings.password,
+    'DATABASE_HOST': settings.host,
+    'DATABASE_PORT': settings.port,
+    'DATABASE_NAME': settings.database
+  });
 
 req.write(postData);
 
