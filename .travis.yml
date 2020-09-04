@@ -1,7 +1,6 @@
 services:
   - postgresql
 
-
 language: node_js
 node_js: 12.13.0
 
