@@ -1,8 +1,9 @@
 const request = require('supertest');
 
-it('should return object', async done => {
-  await request(strapi.server) // app server is an instance of Class: http.Server
-    .get('/books')
-    .expect(200) // Expect response http code 200
+it('should return 0 books', async done => {
+  const expected = 0;
+  expect(
+    await strapi.query('books').count()
+  ).toBe(expected);
   done();
 });

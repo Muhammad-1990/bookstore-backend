@@ -24,11 +24,8 @@ module.exports.createUser = async () => {
                 email: params.email,
                 blocked: params.blocked
             });
-
-            console.info('(Admin) Account created:', admin);
-
         } catch (error) {
-            console.error(error);
+           console.error(error);
         }
     }
 };

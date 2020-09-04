@@ -10,9 +10,10 @@ module.exports = ({ env }) => ({
         database: env('DATABASE_NAME'),
         username: env('DATABASE_USERNAME'),
         password: env('DATABASE_PASSWORD'),
-        ssl: env.bool('DATABASE_SSL'),
+        ssl: env.bool('DATABASE_SSL', false),
       },
       options: {}
     },
   },
 });
+//$(grep DATABASE_NAME ./config/env/test/.env | cut -d '=' -f2);
