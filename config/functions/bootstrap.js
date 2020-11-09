@@ -13,6 +13,5 @@ const userSeed = require('./seeds');
 module.exports = async () => {
   if (process.env.NODE_ENV == 'development') {
     await userSeed.createUser();
-    console.log('user created');
   }
 };
